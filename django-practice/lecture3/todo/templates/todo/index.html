@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Todo</title>
-  </head>
-  <body>
+{% extends "todo/layout.html" %}
+
+{% block body %}
     <h1>Todos</h1>
-  </body>
-</html>
+    <ul>
+      {%for todo in todos %}
+      <li>{{todo}}</li>
+      {% empty %}
+      <p>No Todos</p>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'todo:add'%}">Add New Todo</a>
+    {% endblock %}
